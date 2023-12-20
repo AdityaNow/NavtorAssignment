@@ -107,6 +107,7 @@ namespace NavtorAssignment.PageObjects
             wait.Until(ExpectedConditions.ElementExists(By.XPath(cityName)));
             driver.FindElement(By.XPath(cityName)).Click();
             WaitHelper();
+            Thread.Sleep(100);
         }
 
         public void VerifySelectedCityInDropdown(string expectedCity)

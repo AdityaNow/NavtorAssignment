@@ -21,9 +21,11 @@ namespace NavtorAssignment.Tests
         [SetUp]
         public void Setup()
         {
-
+            //Build json object files
             var settings = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
             var testDt = new ConfigurationBuilder().AddJsonFile("TestData\\testData.json").Build();
+            
+            //Env Setup & Launch Url
             this.Browser = settings["browser"];
             this.Url = settings["url"];
             BrowserSelector br = new BrowserSelector();
