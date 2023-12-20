@@ -1,14 +1,6 @@
 ﻿using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using OpenQA.Selenium.Interactions;
-using System.Security.Cryptography.X509Certificates;
-using NUnit.Framework;
 using NUnit.Framework.Legacy;
 using SeleniumExtras.WaitHelpers;
 
@@ -26,7 +18,6 @@ namespace NavtorAssignment.PageObjects
             this.driver = driver;
             wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
             PageFactory.InitElements(driver, this);
-
         }
 
 
@@ -69,6 +60,7 @@ namespace NavtorAssignment.PageObjects
             WaitHelper();
             Console.WriteLine("Clicked on Get Started button..");
         }
+
         public void ClickComponentsDropdownButton()
         {
             components_dropdown_button.Click();
@@ -81,23 +73,20 @@ namespace NavtorAssignment.PageObjects
             return res;
         }
 
-        public void ClickDropdownLink1()
+        public void ClickDropdownLink()
         { 
             dropdown_link.Click();
             WaitHelper();
         }
 
-        public void ClickDropdownLink2()
+        public void OpenDropdownList()
         {
-            
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
             wait.Until(ExpectedConditions.ElementExists(By.XPath(dropdown)));
             select_city.Click();
-
         }
 
-
-        public void ClickDropdownLink()
+        public void ClickDropdownLinkWhenNotVisible() //Never used - as never encountered this behaviour
         {
             res = IsDropdownLinkVisible();
             if (res == true) 
@@ -113,26 +102,17 @@ namespace NavtorAssignment.PageObjects
 
         public void SelectACity(string city)
         {
-            //Actions act = new Actions(driver);
-            //String[] cityArr = city.Split("");
-            //string key = city[0].ToString();
-            //act.SendKeys(key);      //Send Keypress with initials R for "Rome"
-            //Thread.Sleep(200);
-            //Parameterized xpath with city name
             string cityName = "//span[@class='ng-star-inserted' and contains(text(),'"+city+"')]";
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
             wait.Until(ExpectedConditions.ElementExists(By.XPath(cityName)));
             driver.FindElement(By.XPath(cityName)).Click();
-            Thread.Sleep(20000);
             WaitHelper();
         }
 
         public void VerifySelectedCityInDropdown(string expectedCity)
         {
-            Thread.Sleep(500);
+            Thread.Sleep(50);
             string selectedCity = selected_city_list_value.GetAttribute("textContent");
-            Console.Write("Here it is-");
-            Console.Write(selectedCity);
             ClassicAssert.AreEqual(expectedCity, selectedCity);
         }
 

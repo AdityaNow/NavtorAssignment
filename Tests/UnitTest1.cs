@@ -55,10 +55,9 @@ namespace NavtorAssignment.Tests
             PrimengObjects primeObj = new PrimengObjects(driver);
             primeObj.ClickOnGetStarted();
             primeObj.ClickComponentsDropdownButton();
-            primeObj.ClickDropdownLink1();
-            primeObj.WaitHelper();
+            primeObj.ClickDropdownLink();
             Thread.Sleep(1000);
-            primeObj.ClickDropdownLink2();
+            primeObj.OpenDropdownList();
             primeObj.SelectACity(City);
             primeObj.VerifySelectedCityInDropdown(City);
         }
