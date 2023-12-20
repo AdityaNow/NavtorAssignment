@@ -1,4 +1,4 @@
-# NavtorAssignment
+# Navtor Assignment
 C# - Selenium Interaction with Web Elements
 
 Purpose - Navigate to "https://primeng.org/" then select a city from a dropdown
