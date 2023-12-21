@@ -18,6 +18,6 @@ Purpose - Navigate to "https://primeng.org/" then select a city from a dropdown
 6. Install/Update the following NuGet packages to the solution - DotNetSeleniumExtras, Selenium.WebDriver, Selenium.Support, Selenium.WebDriver.ChromeDriver, Microsoft.Extensions.Configuration.Json, SeleniumExtras.WaitHelpers, WebDriverManager
 
 ### Execution Demo
-Steps - Build Solution and run tests from test explorer </br>
+Steps - Build the Solution and run tests from test explorer </br>
 </br>
 [![Video](https://img.youtube.com/vi/MiwR8TIAS3A/0.jpg)](https://www.youtube.com/watch?v=MiwR8TIAS3A)
